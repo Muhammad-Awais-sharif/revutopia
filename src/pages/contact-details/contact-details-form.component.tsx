@@ -1,15 +1,13 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ContactDetailsInputs, contactDetailsSchema } from "../lib/schema";
-import { Button } from "./ui/button";
-import { StyledInput } from "./ui/styled-input";
-import { ArrowLeft, Mail, Phone, User } from "lucide-react";
-
-interface ContactDetailsFormProps {
-  onSubmit: (data: ContactDetailsInputs) => void;
-  onBack: () => void;
-  defaultValues?: Partial<ContactDetailsInputs>;
-}
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '../../components/ui/button/button.component';
+import { StyledInput } from '../../components/ui/styled-input/styled-input.component';
+import { ArrowLeft, Mail, Phone, User } from 'lucide-react';
+import { ContactDetailsFormProps } from './contact-details-form.types';
+import {
+  ContactDetailsInputs,
+  contactDetailsSchema,
+} from './contact-details-form.schema';
 
 export function ContactDetailsForm({
   onSubmit,
@@ -36,12 +34,14 @@ export function ContactDetailsForm({
           >
             <ArrowLeft className="h-5 w-5 text-[#2A9D8F]" />
           </button>
-          <h2 className="text-2xl font-semibold text-[#333]">Contact details</h2>
+          <h2 className="text-2xl font-semibold text-[#333]">
+            Contact details
+          </h2>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <StyledInput
-            {...register("firstName")}
+            {...register('firstName')}
             label="Primary Contact Name"
             required
             icon={<User className="h-5 w-5 text-[#7C8BA0]" />}
@@ -49,7 +49,7 @@ export function ContactDetailsForm({
           />
 
           <StyledInput
-            {...register("email")}
+            {...register('email')}
             label="Primary Contact Email"
             required
             type="email"
@@ -60,7 +60,7 @@ export function ContactDetailsForm({
 
         <div className="grid grid-cols-2 gap-4">
           <StyledInput
-            {...register("phone")}
+            {...register('phone')}
             label="Contact Number"
             required
             icon={<Phone className="h-5 w-5 text-[#7C8BA0]" />}
@@ -68,7 +68,7 @@ export function ContactDetailsForm({
           />
 
           <StyledInput
-            {...register("landline")}
+            {...register('landline')}
             label="Landline (Optional)"
             icon={<Phone className="h-5 w-5 text-[#7C8BA0]" />}
             error={errors.landline?.message}
@@ -76,7 +76,10 @@ export function ContactDetailsForm({
         </div>
       </div>
 
-      <Button type="submit" className="w-full bg-[#2A9D8F] text-white hover:bg-[#238276]">
+      <Button
+        type="submit"
+        className="w-full bg-[#2A9D8F] text-white hover:bg-[#238276]"
+      >
         Continue
       </Button>
     </form>

@@ -1,19 +1,11 @@
-import { forwardRef } from "react";
-import { cn } from "../../lib/utils";
-
-interface StyledInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  error?: string;
-  icon?: React.ReactNode;
-  required?: boolean;
-}
+import { forwardRef } from 'react';
+import { cn } from '../../../utils/clsx.utils';
+import { StyledInputProps } from './styled-input.types';
 
 export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
   ({ className, label, error, icon, required, ...props }, ref) => {
-
     const placeholderText = label
-      ? `${label}${required ? " *" : ""}`
+      ? `${label}${required ? ' *' : ''}`
       : undefined;
 
     return (
@@ -21,11 +13,11 @@ export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
         {label && (
           <label
             className={cn(
-              "absolute left-3 transition-all duration-200 pointer-events-none",
+              'absolute left-3 transition-all duration-200 pointer-events-none',
               props.value || props.defaultValue
-                ? "-top-2 text-xs bg-white px-1"
-                : "top-3 text-sm",
-              error ? "text-red-500" : "text-gray-500"
+                ? '-top-2 text-xs bg-white px-1'
+                : 'top-3 text-sm',
+              error ? 'text-red-500' : 'text-gray-500'
             )}
           >
             {label}
@@ -41,12 +33,12 @@ export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
           <input
             ref={ref}
             className={cn(
-              "w-full px-3 py-2 border rounded-lg transition-colors",
-              "focus:outline-none focus:ring-2 focus:ring-[#2A9D8F] focus:border-transparent",
-              icon && "pl-10",
+              'w-full px-3 py-2 border rounded-lg transition-colors',
+              'focus:outline-none focus:ring-2 focus:ring-[#2A9D8F] focus:border-transparent',
+              icon && 'pl-10',
               error
-                ? "border-red-500"
-                : "border-gray-300 hover:border-[#2A9D8F]",
+                ? 'border-red-500'
+                : 'border-gray-300 hover:border-[#2A9D8F]',
               className
             )}
             {...props}
@@ -61,4 +53,4 @@ export const StyledInput = forwardRef<HTMLInputElement, StyledInputProps>(
   }
 );
 
-StyledInput.displayName = "StyledInput";
+StyledInput.displayName = 'StyledInput';

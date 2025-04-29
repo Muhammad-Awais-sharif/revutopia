@@ -1,15 +1,5 @@
-import { cn } from "../lib/utils";
-
-interface Step {
-  id: number;
-  name: string;
-  completed: boolean;
-  active?: boolean;
-}
-
-interface FormStepsProps {
-  steps: Step[];
-}
+import { cn } from '../../utils/clsx.utils';
+import { FormStepsProps } from './form-steps.types';
 
 export function FormSteps({ steps }: FormStepsProps) {
   return (
@@ -21,8 +11,8 @@ export function FormSteps({ steps }: FormStepsProps) {
               <div className="inline-flex items-center justify-center">
                 <div
                   className={cn(
-                    "w-4 h-4 rounded-full",
-                    step.completed ? "bg-[#2A9D8F]" : "bg-[#E4E3E3]"
+                    'w-4 h-4 rounded-full',
+                    step.completed ? 'bg-[#2A9D8F]' : 'bg-[#E4E3E3]'
                   )}
                 />
               </div>
@@ -30,8 +20,8 @@ export function FormSteps({ steps }: FormStepsProps) {
                 <div className="flex h-4 items-center flex-1">
                   <div
                     className={cn(
-                      "flex-1 h-0.5",
-                      step.completed ? "bg-[#2A9D8F]" : "bg-[#E4E3E3]"
+                      'flex-1 h-0.5',
+                      step.completed ? 'bg-[#2A9D8F]' : 'bg-[#E4E3E3]'
                     )}
                   />
                 </div>
@@ -43,8 +33,8 @@ export function FormSteps({ steps }: FormStepsProps) {
                 className={cn(
                   "w-fit font-['Poppins'] text-base text-center leading-[18px] whitespace-nowrap",
                   step.active
-                    ? "font-medium text-[#2A9D8F]"
-                    : "font-normal text-[#7C8BA0]"
+                    ? 'font-medium text-[#2A9D8F]'
+                    : 'font-normal text-[#7C8BA0]'
                 )}
               >
                 {step.name}
